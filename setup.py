@@ -7,7 +7,7 @@ setup(
     description='A python library for generic machine learning algorithms',
     author='Ollie Thomas',
     license='MIT',
-    install_requires=[],
+    install_requires=['numpy==1.19.2'],
     setup_requires=['pytest-runner'],
     tests_require=['pytest==4.4.1'],
     test_suite='tests'
