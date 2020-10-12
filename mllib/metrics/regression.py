@@ -7,3 +7,7 @@ def coef_determination(y_true, y_pred):
 
 def mean_square_error(y_true, y_pred):
     return np.sqrt(np.sum((y_pred - y_true) ** 2) / len(y_true)).round(4)
+
+
+def sum_of_squares(y_true, y_pred):
+    return np.sum((y_pred - y_true) ** 2)
