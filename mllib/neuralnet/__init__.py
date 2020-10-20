@@ -1,7 +1,7 @@
-from .multi_layer import MLP
+from .multi_layer import MultiLayerPerceptron
 from .perceptron import Perceptron
 
 __all__ = [
-    'MLP',
+    'MultiLayerPerceptron',
     'Perceptron'
 ]
