@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mllib.neuralnet.perceptron import Perceptron
 from mllib.neuralnet.multi_layer import MultiLayerPerceptron
+from mllib.neuralnet.radial_basis import RadialBasisFunction
 
 
 def test_perceptron_on_OR():
@@ -85,8 +86,27 @@ def test_logistic_mlp():
     print(mlp.predict(inputs))
 
 
+def test_logistic_mlp_es():  # Doesn't work
+    inputs = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+    labels = np.array([[0], [1], [1], [0]])
+
+    mlp = MultiLayerPerceptron(out_type='logistic', epochs=5001, n_hidden=4, early_stopping=True)
+    mlp.fit(inputs, labels)
+    print(mlp.predict(inputs))
+
+
+def test_rbf():
+    inputs = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+    labels = np.array([[0], [1], [1], [1]])
+    print(range(np.shape(inputs)[0]))
+    rbf = RadialBasisFunction()
+    rbf.fit(inputs, labels)
+
+
 # test_perceptron_on_OR()
 # perceptron_test_with_2_neurons()
 # test_linear_mlp()
 # test_linear_mlp_early_stopping()
 # test_logistic_mlp()
+# test_logistic_mlp_es()
+test_rbf()
