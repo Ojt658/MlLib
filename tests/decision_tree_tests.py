@@ -30,7 +30,7 @@ def play_tennis_test():
     dt.fit(inputs=df,
            targets=play)
 
-    graph, prediction = dt.predict({'outlook': 'rainy', 'temp': 'cool', 'humidity': 'normal', 'windy': 'TRUE'})
+    graph, prediction = dt.predict({'outlook': 'overcast', 'temp': 'cool', 'humidity': 'normal', 'windy': 'TRUE'})
 
     print(prediction)
     # print(find_path(graph, 'outlook', 'humidity', []))
@@ -52,6 +52,22 @@ def play_tennis_test():
 #             return newPath
 #     return None
 
+def test_party():
+    deadline = 'urgent,urgent,near,none,none,none,near,near,near,urgent'.split(',')
+    party = 'yes,no,yes,yes,no,yes,no,no,yes,no'.split(',')
+    lazy = 'yes,yes,yes,no,yes,no,no,yes,yes,no'.split(',')
+    activity = 'party,study,party,party,pub,party,study,tv,party,study'.split(',')
+
+    dataset = {'deadline': deadline, 'party': party, 'lazy': lazy}
+    df = pd.DataFrame(dataset, columns=['deadline', 'party', 'lazy'])
+
+    dt = DecisionTreeID3()
+    dt.fit(inputs=df,
+           targets=activity)
+
+    graph, prediction = dt.predict({'deadline': 'near', 'party': 'yes', 'lazy': 'no'})
+    print(prediction)
 
 # generic_test_ID3()
-play_tennis_test()
+# play_tennis_test()
+test_party()
